@@ -1,0 +1,135 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: large;
+}
+.nav_bar>li{        
+    font-weight: bolder;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+#language:hover{   /*backgroud color of language when hover*/
+    background-color: rgb(182, 179, 179);   
+}
+#upcoming:hover{    /*backgroud color of upcoming when hover*/
+    background-color: rgb(182, 179, 179);   
+}
+#language:hover .appear{  /*Making the none elment into block when hovering the language*/
+    display: block;
+}
+#upcoming:hover .appear{   /*Making the none elment into block when hovering the upcoming*/
+    display: block;
+}
+#language,#upcoming{
+    word-spacing: 30px;
+    line-height: 5vh;
+    cursor: context-menu;
+}
+.nav_bar{                  /*Displaying nav_bar as a flex*/
+    list-style-type: none;
+    padding: 5px;
+    width:100%;
+    height:5vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.appear li:hover{           /*background color of apper class's li when hover*/
+       background-color: rgb(40, 40, 192);
+       
+}
+#popup{                   /*displaying the popup section in center and displaying it as none intialy*/
+    position: absolute;
+    top:40%;
+    left:40%;
+    width:400px;
+    height:100px;
+    border:2px solid red;
+    text-align: center;
+    padding-top: 20px;
+    display:none;
+    background-color: rgb(240, 206, 13);
+    color: black;
+    font-size: xx-large;
+    border-radius: 20px;
+    animation:pope 1s;
+    z-index: 1;
+}
+@keyframes pope{ /*animation for popup when trailer not found time*/
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
+#ok{                         /*ok button styling in popup*/
+    border-radius: 20px;
+    width:60px;
+    margin: auto;
+    border:1px solid black;
+    font-size: large;
+    background-color: red;
+    cursor: context-menu;
+
+}
+#section-last{                   /*making the last section in nav_bar as a flex*/
+    display: flex;
+    justify-content: space-evenly;
+    width:350px;
+}
+.appear li{               
+    text-indent: 5px;
+} 
+.appear {                     /*dropdown appear when hover to language or upcoming*/
+     position: absolute;
+     top:33px;
+     list-style-type: none;
+     width: 140px;
+     height:165px;
+     display: none;
+     background-color: white;
+     z-index: 1;
+     box-shadow: -2px 3px 7px black;
+     
+}
+
+.container{              /*hold the remaining section it contain movie infos*/
+    background-color: gray;
+    height:95vh;
+    width:100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    overflow: auto;
+}
+
+.container div div:nth-child(1){   /*displaying the movie name in bold*/
+    font-weight: bold; 
+}
+.container div div:nth-child(2){    /*movie release date*/
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-size: small;
+    position: relative;
+    top:-15px;
+}
+.container div div:last-child{   /*movie views and likes*/
+    margin:0 0 5px 20px;
+}
+.display>img{                    /*movie image*/
+    width:250px;
+    height:250px;
+    align-self: center;   
+} 
+.display{                        /*class for movie and it display movie infos as flex in coloumn*/
+    width:300px;                
+    height:360px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    margin:10px;
+    justify-content: space-between;
+}
+#popular{
+    cursor: context-menu;
+}

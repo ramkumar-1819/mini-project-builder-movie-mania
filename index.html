@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MOVIE-API</title>
+    <link rel="stylesheet" href="./style.css">
+    <script src="https://unpkg.com/axios@0.21.1/dist/axios.min.js"></script><!--Getting Axios Package-->
+</head>
+<body>
+    <div class="main"><!--Hold Every Thing in the Page-->
+    <ul class="nav_bar"><!--Navigation Bar-->
+        <li>&#127909 Prograd</li><!--First Section-->
+        <li id="section-last"><!--Last Section-->
+            <li id="language">Languages  ▾ 
+              <ul class="appear">
+                 <li onclick="fun1()">Tamil</li>
+                 <li onclick="fun2()">English</li>
+                 <li onclick="fun3()">Hindi</li>
+                 <li onclick="fun4()">Telungu</li>
+                 <li onclick="fun5()">Kannadam</li>
+              </ul>
+            </li>
+            <li id="home">Home</li>
+            <li id="popular"onclick="popu()">Popular</li>
+            <li id="upcoming">Upcoming  ▾
+                <ul class="appear">
+                    <li onclick="fun1_1()">Tamil</li>
+                    <li onclick="fun2_1()">English</li>
+                    <li onclick="fun3_1()">Hindi</li>
+                    <li onclick="fun4_1()">Telungu</li>
+                    <li onclick="fun5_1()">Kannadam</li>
+                 </ul>
+            </li>
+        </li>
+    </ul>
+    <div id="popup">Trailer Not Found    <!--Trailer section-->
+        <div id="ok">OK</div>
+    </div>
+    </div>
+    
+    <script src="./app.js"></script>
+</body>
+</html>
