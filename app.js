@@ -7,10 +7,15 @@ $main.appendChild($container)                //appending container into main sec
 var $popup=document.getElementById("popup")  //getting popup element
 var $ok=document.getElementById("ok")        //getting  ok button in popup
 
-var apikey = "3482ad7cd87031c9dfe157cadf0c57ee";//API KEY
+var apikey = "6af5e413e17f42d047fcc0b61f2c0618";//API KEY
 var $language=document.getElementById("language");//getting language element
 var category="";   //category intialy empty string and it shows the movie category(Popular/Upcoming)
 var language="";   //language intialy empty string(Language of the movie)
+
+var $nextscreen=document.createElement("div");  //trailer page
+var $back=document.createElement("div")      //back button trailer page
+$back.innerHTML="BACK"
+var $ifrm=document.createElement("iframe")   //iframe element containing trailer
 
 var $dropdown=document.getElementsByClassName("appear")[0];//getting the dropdown element
 
@@ -77,11 +82,7 @@ function fun5_1(){     //In Language if kanadam is Clicked
 }
 
 
-function popu(){     //If popular section is clicked
-  category="popular";
-  language="en"
-  omg(category,language)
-}
+
 
 //omg function occur when clicking popup,language,upcoming
 function omg(category,language){ 
@@ -127,8 +128,14 @@ function real(values){   //Iterate throung the reponse
       .then(response=>{
       console.log(response.data)
       if(response.data.results[0].key){   //if key found ie(trailer url)
-        console.log(response.data.results[0].key)
-        window.open(`https://www.youtube.com/embed/${response.data.results[0].key}`);//opening trailer in new tab
+        $container.replaceWith($nextscreen);//replace old scren with new if trailer found
+        $nextscreen.appendChild($back)      //append back button and iframe in the new screen
+        $nextscreen.appendChild($ifrm) 
+        //localStorage.setItem("a",`https://www.youtube.com/embed/${response.data.results[0].key}`)
+        $ifrm.src=`https://www.youtube.com/embed/${response.data.results[0].key}`;//opening trailer in new tab
+        funs() //call the fun() it conntainer some class to the new screen and its children
+        $back.addEventListener("click",funs1) //if back button clicked
+        
       }
     })
     .catch(error=>{   //if key not found (trailer not found)
@@ -150,3 +157,15 @@ function real(values){   //Iterate throung the reponse
     })
   }
 
+function funs(){ //toggle btw classes if trailer found
+  $back.classList.toggle("back")
+  $ifrm.classList.toggle("ifrm")
+  $nextscreen.classList.toggle("trail")
+}
+
+function funs1(){   //if back button is clicked
+  $back.classList.toggle("back")
+  $ifrm.classList.toggle("ifrm")
+  $nextscreen.classList.toggle("trail")
+  $nextscreen.replaceWith($container)
+}
